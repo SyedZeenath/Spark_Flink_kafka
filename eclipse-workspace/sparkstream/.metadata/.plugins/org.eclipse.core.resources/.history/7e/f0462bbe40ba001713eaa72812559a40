@@ -1,0 +1,25 @@
+package streamsql;
+
+import java.util.regex.Pattern;
+
+public final class StreamSql {
+	
+	private static final Pattern SPACE =Pattern.compile(" ");
+	
+	public static void main(String[] args) {
+		if(args.length < 2) {
+			System.err.println("Usage: workcount <hostname> <port>");
+			System.exit(1);
+		StreamSql.run();	
+		}
+		
+		
+	}
+
+	private static void run() {
+		
+		
+	}
+	
+
+}

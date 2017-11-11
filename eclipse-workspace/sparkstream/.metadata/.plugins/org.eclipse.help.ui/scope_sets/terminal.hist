@@ -1,0 +1,4 @@
+#Wed Oct 25 00:29:48 IST 2017
+__DEFAULT__=false
+org.eclipse.help.ui.localSearch.master=true
+expression=terminal

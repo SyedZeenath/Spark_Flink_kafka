@@ -1,0 +1,5 @@
+package stream02;
+
+public class StatefulWordCount {
+
+}

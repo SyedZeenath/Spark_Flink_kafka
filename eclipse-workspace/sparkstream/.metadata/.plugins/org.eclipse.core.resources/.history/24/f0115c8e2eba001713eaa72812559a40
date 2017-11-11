@@ -1,0 +1,97 @@
+package customrcvr;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.ConnectException;
+import java.net.Socket;
+import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
+import java.util.regex.Pattern;
+
+import org.apache.spark.SparkConf;
+import org.apache.spark.api.java.StorageLevels;
+import org.apache.spark.storage.StorageLevel;
+import org.apache.spark.streaming.Duration;
+import org.apache.spark.streaming.api.java.JavaDStream;
+import org.apache.spark.streaming.api.java.JavaPairDStream;
+import org.apache.spark.streaming.api.java.JavaReceiverInputDStream;
+import org.apache.spark.streaming.api.java.JavaStreamingContext;
+import org.apache.spark.streaming.receiver.Receiver;
+
+import com.google.common.io.Closeables;
+
+import scala.Tuple2;
+
+public class CustomRcvr {
+	private static final Pattern SPACE = Pattern.compile(" ");
+	
+	public static void main(String[] args) throws Exception{
+		//String arg0=args[0] //locahost
+		//String arg1=args[] //port
+		
+		
+		if (args.length < 2) {
+			System.err.println("USage: CustomRcvr <hostname> <port>");
+			System.exit(1);
+		}
+		
+		//StreamingExamples.setStreamingLogLevels();
+		
+		SparkConf conf = new SparkConf().setMaster("local[2]").setAppName("customreceiver");
+		JavaStreamingContext ssc = new JavaStreamingContext(conf, new Duration(1000));
+		
+		JavaReceiverInputDStream<String> lines = ssc.socketTextStream(args[0], Integer.parseInt(args[1]), StorageLevels.MEMORY_AND_DISK_SER);
+		JavaDStream<String> words =lines.flatMap(x -> Arrays.asList(SPACE.split(x)).iterator());
+		JavaPairDStream<String, Integer> wordcounts = words.mapToPair(s -> new Tuple2<>(s,1)).reduceByKey((i1, i2) -> i1+i2);
+		
+		wordcounts.print();
+		ssc.start();
+		ssc.awaitTermination();
+		
+		
+	}
+//	String host = null;
+//	int port = -1;
+//	
+//	public CustomRcvr(String host_, int port_) {
+//		super(StorageLevel.MEMORY_AND_DISK_2());
+//		host=host_;
+//		port=port_;
+//	}
+//	@Override
+//	public void onStart() {
+//		new Thread(this::receive).start();
+//	}
+//	
+//	@Override
+//	public void onStop() {
+//		
+//	}
+//	private void receive() {
+//		try {
+//			Socket socket =null;
+//			BufferedReader reader = null;
+//			try {
+//				socket = new Socket("localhost", 9999);
+//				reader = new BufferedReader(new InputStreamReader(socket.getInputStream(), StandardCharsets.UTF_8));
+//				String userInput;
+//				while(!isStopped() && (userInput = reader.readLine()) != null) {
+//					System.out.println("Received data '" +userInput + "'");
+//					store(userInput);
+//				}
+//				
+//			}finally {
+//				Closeables.close(reader, /* swallowIOException = */ true);
+//				Closeables.close(socket, /* swallowIOException = */ true);
+//			}
+//			restart("trying to connect again");
+//		}catch(ConnectException ce) {
+//			restart("could not connect", ce);
+//		}catch(Throwable t) {
+//			restart("Error receiving data", t);
+//		}
+//	}
+//	
+	
+
+}
