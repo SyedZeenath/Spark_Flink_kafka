@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.util.Random"/>
+<fullyQualifiedTypeName name="java.util.Properties"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="org.apache.kafka.clients.producer.ProducerRecord"/>
+<fullyQualifiedTypeName name="kafka.producer.Partitioner"/>
+<fullyQualifiedTypeName name="kafka.utils.VerifiableProperties"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="kafka.consumer.ConsumerIterator"/>
+<fullyQualifiedTypeName name="kafka.consumer.KafkaStream"/>
+</qualifiedTypeNameHistroy>

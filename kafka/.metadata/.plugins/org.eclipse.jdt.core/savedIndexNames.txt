@@ -1,0 +1,8 @@
+INDEX VERSION 1.130+/home/bizruntime/workspace/kafka/.metadata/.plugins/org.eclipse.jdt.core
+1045448271.index
+3246149733.index
+1276528095.index
+2922951058.index
+861776606.index
+1033390082.index
+3773530796.index
