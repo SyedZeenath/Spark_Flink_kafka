@@ -1,0 +1,10 @@
+package transformationFunctions;
+
+import org.apache.flink.api.java.ExecutionEnvironment;
+
+public class MapPartitionExample {
+	final ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment();
+
+	env.getConfig().setGlobalJobParameters(params);
+
+}

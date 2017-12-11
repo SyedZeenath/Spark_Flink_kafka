@@ -1,0 +1,33 @@
+package filter;
+
+import org.apache.flink.api.common.functions.FilterFunction;
+import org.apache.flink.api.java.DataSet;
+import org.apache.flink.api.java.ExecutionEnvironment;
+import org.apache.flink.api.java.utils.ParameterTool;
+
+public class FilterExample implements FilterFunction<String>{
+	public static void main(String[] args) throws Exception {
+
+		final ParameterTool params = ParameterTool.fromArgs(args);
+
+		// set up the execution environment
+		final ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment();
+
+		// make parameters available in the web interface
+		env.getConfig().setGlobalJobParameters(params);
+		
+		
+		DataSet<String> intNumbers = env.readTextFile("");
+		DataSet<String> naturalNumbers = intNumbers.filter(new FilterExample());
+	}
+		
+		public boolean filter(String value) throws Exception {
+			// TODO Auto-generated method stub
+			if() {
+				
+			}
+			
+			return false;
+		}
+
+}

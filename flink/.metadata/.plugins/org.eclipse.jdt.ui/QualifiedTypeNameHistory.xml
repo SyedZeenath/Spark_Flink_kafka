@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="org.apache.flink.streaming.connectors.wikiedits.WikipediaEditsSource"/>
+<fullyQualifiedTypeName name="org.apache.flink.streaming.api.environment.StreamExecutionEnvironment"/>
+<fullyQualifiedTypeName name="org.apache.flink.streaming.api.datastream.DataStream"/>
+<fullyQualifiedTypeName name="org.apache.flink.streaming.connectors.wikiedits.WikipediaEditEvent"/>
+<fullyQualifiedTypeName name="org.apache.flink.streaming.util.serialization.SimpleStringSchema"/>
+<fullyQualifiedTypeName name="org.apache.flink.api.common.functions.MapFunction"/>
+<fullyQualifiedTypeName name="org.apache.flink.api.java.tuple.Tuple5"/>
+<fullyQualifiedTypeName name="org.apache.flink.streaming.api.windowing.triggers.Trigger.TriggerContext"/>
+<fullyQualifiedTypeName name="org.apache.flink.streaming.api.windowing.triggers.TriggerResult"/>
+<fullyQualifiedTypeName name="org.apache.flink.api.common.state.ValueState"/>
+<fullyQualifiedTypeName name="javassist.SerialVersionUID"/>
+<fullyQualifiedTypeName name="org.apache.flink.api.common.state.StateDescriptor"/>
+<fullyQualifiedTypeName name="sessionWindowing.SessionWindowing.SessionTrigger"/>
+<fullyQualifiedTypeName name="org.apache.commons.math3.geometry.spherical.twod.Edge"/>
+<fullyQualifiedTypeName name="enumTriangles.EnumTrianglesDataTypes.Triad"/>
+<fullyQualifiedTypeName name="enumTriangles.EnumTrianglesDataTypes.Edge"/>
+<fullyQualifiedTypeName name="org.apache.flink.runtime.checkpoint.OperatorState"/>
+<fullyQualifiedTypeName name="com.fasterxml.jackson.databind.jsontype.TypeSerializer"/>
+<fullyQualifiedTypeName name="org.apache.flink.api.common.typeutils.TypeSerializerFactory"/>
+<fullyQualifiedTypeName name="org.apache.flink.api.common.typeutils.TypeSerializer"/>
+<fullyQualifiedTypeName name="org.apache.flink.streaming.api.windowing.assigners.EventTimeSessionWindows"/>
+<fullyQualifiedTypeName name="org.apache.flink.streaming.api.windowing.time.Time"/>
+<fullyQualifiedTypeName name="org.apache.flink.api.java.utils.ParameterTool"/>
+<fullyQualifiedTypeName name="org.apache.flink.runtime.concurrent.Future"/>
+<fullyQualifiedTypeName name="org.apache.flink.runtime.highavailability.HighAvailabilityServices"/>
+<fullyQualifiedTypeName name="wordcount.WordCountExample.Tokenizer"/>
+<fullyQualifiedTypeName name="filter.FilterExample"/>
+<fullyQualifiedTypeName name="org.apache.flink.api.common.functions.FilterFunction"/>
+<fullyQualifiedTypeName name="org.apache.flink.types.Row"/>
+<fullyQualifiedTypeName name="org.apache.flink.api.java.DataSet"/>
+<fullyQualifiedTypeName name="org.apache.flink.table.api.java.Tumble"/>
+<fullyQualifiedTypeName name="ml2.LinearRegression.Params"/>
+<fullyQualifiedTypeName name="ml2.LinearRegression.Data"/>
+</qualifiedTypeNameHistroy>

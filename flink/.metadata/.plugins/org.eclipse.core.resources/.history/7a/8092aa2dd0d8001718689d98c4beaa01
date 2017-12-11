@@ -1,0 +1,5 @@
+package processTimeWindowing;
+
+public class GroupedProcessingTimeWindowExample {
+
+}

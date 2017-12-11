@@ -1,0 +1,5 @@
+package asyncIO;
+
+public interface ResultFuture<T> {
+
+}

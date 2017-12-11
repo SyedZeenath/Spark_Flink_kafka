@@ -1,0 +1,19 @@
+package twitter;
+
+import org.apache.flink.streaming.api.functions.source.SourceFunction;
+
+public class TwitterSource implements SourceFunction {
+
+	@Override
+	public void cancel() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void run(SourceContext arg0) throws Exception {
+		// TODO Auto-generated method stub
+
+	}
+
+}

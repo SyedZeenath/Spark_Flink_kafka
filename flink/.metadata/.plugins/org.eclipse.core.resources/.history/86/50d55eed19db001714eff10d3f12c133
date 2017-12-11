@@ -1,0 +1,42 @@
+package hadoopCompatibility;
+
+public class HadoopExample {
+	ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment();
+
+	// Set up the Hadoop TextInputFormat.
+	Job job = Job.getInstance();
+	HadoopInputFormat<LongWritable, Text> hadoopIF =
+	  new HadoopInputFormat<LongWritable, Text>(
+	    new TextInputFormat(), LongWritable.class, Text.class, job
+	  );
+	TextInputFormat.addInputPath(job, new Path(inputPath));
+
+	// Read data using the Hadoop TextInputFormat.
+	DataSet<Tuple2<LongWritable, Text>> text = env.createInput(hadoopIF);
+
+	DataSet<Tuple2<Text, LongWritable>> result = text
+	  // use Hadoop Mapper (Tokenizer) as MapFunction
+	  .flatMap(new HadoopMapFunction<LongWritable, Text, Text, LongWritable>(
+	    new Tokenizer()
+	  ))
+	  .groupBy(0)
+	  // use Hadoop Reducer (Counter) as Reduce- and CombineFunction
+	  .reduceGroup(new HadoopReduceCombineFunction<Text, LongWritable, Text, LongWritable>(
+	    new Counter(), new Counter()
+	  ));
+
+	// Set up the Hadoop TextOutputFormat.
+	HadoopOutputFormat<Text, IntWritable> hadoopOF =
+	  new HadoopOutputFormat<Text, IntWritable>(
+	    new TextOutputFormat<Text, IntWritable>(), job
+	  );
+	hadoopOF.getConfiguration().set("mapreduce.output.textoutputformat.separator", " ");
+	TextOutputFormat.setOutputPath(job, new Path(outputPath));
+
+	// Emit data using the Hadoop TextOutputFormat.
+	result.output(hadoopOF);
+
+	// Execute Program
+	env.execute("Hadoop WordCount");
+
+}
