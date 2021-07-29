@@ -1,4 +1,4 @@
-# My project's README
+# SparkML - Flink - Kafka Practice 
 
 
 practice codes on sparkML and few of spark streaming
